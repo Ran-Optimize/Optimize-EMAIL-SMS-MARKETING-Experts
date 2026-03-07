@@ -78,8 +78,8 @@ const Hero: React.FC = () => {
                 <p className="text-gray-500 text-sm font-bold uppercase">ימים לתוצאות שיא</p>
             </div>
             <div>
-                <p className="text-4xl md:text-5xl font-black text-purple-400 mb-2">10M</p>
-                <p className="text-gray-500 text-sm font-bold uppercase">₪ יוצרו ללקוחות</p>
+                <p className="text-4xl md:text-5xl font-black text-purple-400 mb-2">₪10M</p>
+                <p className="text-gray-500 text-sm font-bold uppercase">יצרנו ללקוחות</p>
             </div>
         </div>
       </div>
