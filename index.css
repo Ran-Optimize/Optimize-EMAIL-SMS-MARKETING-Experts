@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-assistant: 'Assistant', sans-serif;
 }
@@ -31,12 +33,22 @@
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
   }
+
+  .animate-marquee-rtl {
+    animation: marquee-rtl 25s linear infinite;
+  }
+  .pause-marquee:hover .animate-marquee-rtl {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-rtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100% + 1rem)); }
 }
 
 body {
   font-family: 'Assistant', sans-serif;
-  background-color: #050505;
-  color: #ffffff;
   overflow-x: hidden;
 }
 

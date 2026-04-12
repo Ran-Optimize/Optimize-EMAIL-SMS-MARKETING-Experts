@@ -53,23 +53,23 @@ const Emails: React.FC = () => {
   const closeModal = () => setSelectedEmail(null);
 
   return (
-    <div className="bg-neutral-950 min-h-screen font-assistant pb-24 text-right" dir="rtl">
+    <div className="bg-white dark:bg-neutral-950 min-h-screen font-assistant pb-24 text-right transition-colors duration-300" dir="rtl">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#1e40af_0%,transparent_70%)] opacity-20"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#1e40af_0%,transparent_70%)] opacity-10 dark:opacity-20"></div>
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-6xl">
-          <div className="inline-flex items-center gap-3 bg-blue-600/20 border border-blue-500/30 px-8 py-3 rounded-full mb-8 backdrop-blur-3xl">
-            <Mail className="w-6 h-6 text-blue-500" />
-            <span className="text-blue-400 font-black text-lg uppercase tracking-widest italic">Gallery</span>
+          <div className="inline-flex items-center gap-3 bg-blue-100 dark:bg-blue-600/20 border border-blue-200 dark:border-blue-500/30 px-8 py-3 rounded-full mb-8 backdrop-blur-3xl transition-colors">
+            <Mail className="w-6 h-6 text-blue-600 dark:text-blue-500" />
+            <span className="text-blue-600 dark:text-blue-400 font-black text-lg uppercase tracking-widest italic">Gallery</span>
           </div>
-          <h1 className="text-5xl md:text-[7rem] font-black mb-6 leading-[0.8] tracking-tighter">
+          <h1 className="text-5xl md:text-[7rem] font-black mb-6 leading-[0.8] tracking-tighter text-gray-900 dark:text-white">
             המיילים שלנו <br />
-            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent italic">הביצועים שלכם</span>
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500 bg-clip-text text-transparent italic">הביצועים שלכם</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             גלריית עבודות נבחרות המציגה את הקופי, העיצוב והאסטרטגיה מאחורי המיילים הכי מוצלחים שלנו.
           </p>
         </div>
@@ -81,18 +81,18 @@ const Emails: React.FC = () => {
           {paginatedImages.map((img, idx) => (
             <div 
               key={idx}
-              className="group flex flex-col bg-neutral-900 border border-white/10 rounded-[2rem] overflow-hidden hover:border-blue-500/50 transition-all shadow-2xl"
+              className="group flex flex-col bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-[2rem] overflow-hidden hover:border-blue-500/50 transition-all shadow-xl dark:shadow-2xl"
             >
-              <div className="p-4 border-b border-white/5 flex items-center justify-between bg-neutral-800/50">
+              <div className="p-4 border-b border-gray-200 dark:border-white/5 flex items-center justify-between bg-gray-100 dark:bg-neutral-800/50 transition-colors">
                 <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+                  <div className="w-3 h-3 rounded-full bg-red-400 dark:bg-red-500/50"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-400 dark:bg-yellow-500/50"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-400 dark:bg-green-500/50"></div>
                 </div>
-                <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest">Optimize Email Preview</span>
+                <span className="text-[10px] font-bold text-gray-400 dark:text-white/30 uppercase tracking-widest">Optimize Email Preview</span>
               </div>
               
-              <div className="h-[600px] overflow-y-auto relative bg-white custom-scrollbar">
+              <div className="h-[400px] md:h-[600px] overflow-y-auto relative bg-white custom-scrollbar">
                 <img 
                   src={img.src} 
                   alt={img.alt} 
@@ -102,11 +102,11 @@ const Emails: React.FC = () => {
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_40px_rgba(0,0,0,0.05)]"></div>
               </div>
               
-              <div className="p-6 bg-neutral-900 flex items-center justify-between">
-                <h3 className="text-white font-bold text-lg">{img.alt}</h3>
+              <div className="p-6 bg-gray-50 dark:bg-neutral-900 flex items-center justify-between transition-colors">
+                <h3 className="text-gray-900 dark:text-white font-bold text-lg">{img.alt}</h3>
                 <button 
                   onClick={() => setSelectedEmail(img.src)}
-                  className="p-2 bg-white/5 hover:bg-white/10 rounded-xl transition-colors text-blue-400"
+                  className="p-2 bg-gray-200 dark:bg-white/5 hover:bg-gray-300 dark:hover:bg-white/10 rounded-xl transition-colors text-blue-600 dark:text-blue-400"
                   title="מסך מלא"
                 >
                   <Maximize2 className="w-5 h-5" />
@@ -121,17 +121,17 @@ const Emails: React.FC = () => {
             <button 
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="p-4 rounded-full bg-white/5 border border-white/10 text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
+              className="p-4 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white disabled:opacity-30 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
-            <span className="text-white font-bold text-xl">
+            <span className="text-gray-900 dark:text-white font-bold text-xl">
               עמוד {currentPage} מתוך {totalPages}
             </span>
             <button 
               onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="p-4 rounded-full bg-white/5 border border-white/10 text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
+              className="p-4 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white disabled:opacity-30 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -145,12 +145,12 @@ const Emails: React.FC = () => {
       {/* Lightbox Modal */}
       {selectedEmail && (
         <div 
-          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] bg-white/95 dark:bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 transition-colors"
           onClick={closeModal}
         >
           <button 
             onClick={closeModal}
-            className="absolute top-8 right-8 text-white hover:text-blue-400 transition-colors z-[110]"
+            className="absolute top-8 right-8 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors z-[110]"
           >
             <X className="w-10 h-10" />
           </button>

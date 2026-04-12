@@ -38,11 +38,11 @@ const AgencyMetrics: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-neutral-950">
+    <section className="py-24 px-4 bg-gray-50 dark:bg-neutral-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">המספרים שמאחורי ההצלחה</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">המספרים שמאחורי ההצלחה</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             אנחנו מודדים את עצמנו לפי השורה התחתונה שלכם. אלו המדדים הממוצעים של Optimize עבור חנויות שופיפי פעילות.
           </p>
         </div>
@@ -51,7 +51,7 @@ const AgencyMetrics: React.FC = () => {
           {metrics.map((metric, index) => (
             <div 
               key={index} 
-              className="relative p-10 bg-white/5 border border-white/10 rounded-[3rem] group hover:border-blue-500/50 transition-all duration-500 overflow-hidden"
+              className="relative p-10 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-[3rem] group hover:border-blue-500/50 transition-all duration-500 overflow-hidden shadow-sm dark:shadow-none"
             >
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/5 blur-3xl group-hover:bg-blue-500/10 transition-all"></div>
               
@@ -60,8 +60,8 @@ const AgencyMetrics: React.FC = () => {
               </div>
               
               <div className="space-y-4">
-                <p className="text-5xl font-black text-white tracking-tighter">{metric.value}</p>
-                <h3 className="text-xl font-bold text-gray-200">{metric.label}</h3>
+                <p className="text-5xl font-black text-gray-900 dark:text-white tracking-tighter">{metric.value}</p>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">{metric.label}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{metric.description}</p>
               </div>
             </div>

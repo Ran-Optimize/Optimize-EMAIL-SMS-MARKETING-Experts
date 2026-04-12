@@ -23,9 +23,9 @@ const InteractiveGrid: React.FC = () => {
     if (!ctx) return;
 
     const resizeCanvas = () => {
-      if (canvas.parentElement) {
-        canvas.width = canvas.parentElement.clientWidth;
-        canvas.height = canvas.parentElement.clientHeight;
+      if (canvas && canvas.parentElement) {
+        canvas.width = canvas.parentElement.clientWidth || window.innerWidth;
+        canvas.height = canvas.parentElement.clientHeight || window.innerHeight;
       } else {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -36,6 +36,9 @@ const InteractiveGrid: React.FC = () => {
     const initPoints = () => {
       pointsRef.current = [];
       const spacing = 40; // Grid spacing
+      
+      if (canvas.width === 0 || canvas.height === 0) return;
+
       const rows = Math.ceil(canvas.height / spacing);
       const cols = Math.ceil(canvas.width / spacing);
 
@@ -56,74 +59,81 @@ const InteractiveGrid: React.FC = () => {
     };
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Physics settings
-      const mouseRadius = 200; // Increased radius
-      const mouseForce = 3; // Increased force
-      const springFactor = 0.1;
-      const friction = 0.90;
+      try {
+        if (!ctx || !canvas) return;
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Physics settings
+        const mouseRadius = 200; // Increased radius
+        const mouseForce = 3; // Increased force
+        const springFactor = 0.1;
+        const friction = 0.90;
 
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.2)'; // Slightly more visible
-      ctx.lineWidth = 1;
+        ctx.strokeStyle = 'rgba(59, 130, 246, 0.2)'; // Slightly more visible
+        ctx.lineWidth = 1;
 
-      // Update points
-      pointsRef.current.forEach(point => {
-        const dx = point.x - mouseRef.current.x;
-        const dy = point.y - mouseRef.current.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        // Update points
+        pointsRef.current.forEach(point => {
+          const dx = point.x - mouseRef.current.x;
+          const dy = point.y - mouseRef.current.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
 
-        // Mouse repulsion
-        if (distance < mouseRadius) {
-          const angle = Math.atan2(dy, dx);
-          const force = (mouseRadius - distance) / mouseRadius;
-          const push = force * mouseForce;
+          // Mouse repulsion
+          if (distance < mouseRadius) {
+            const angle = Math.atan2(dy, dx);
+            const force = (mouseRadius - distance) / mouseRadius;
+            const push = force * mouseForce;
+            
+            point.vx += Math.cos(angle) * push;
+            point.vy += Math.sin(angle) * push;
+          }
+
+          // Spring back to origin
+          const ox = point.originX - point.x;
+          const oy = point.originY - point.y;
           
-          point.vx += Math.cos(angle) * push;
-          point.vy += Math.sin(angle) * push;
+          point.vx += ox * springFactor;
+          point.vy += oy * springFactor;
+
+          // Apply friction
+          point.vx *= friction;
+          point.vy *= friction;
+
+          // Move point
+          point.x += point.vx;
+          point.y += point.vy;
+        });
+
+        // Draw lines connecting points
+        const spacing = 40;
+        const cols = Math.ceil(canvas.width / spacing) + 1;
+
+        ctx.beginPath();
+        for (let i = 0; i < pointsRef.current.length; i++) {
+          const point = pointsRef.current[i];
+          
+          // Connect right
+          if ((i + 1) % cols !== 0 && i + 1 < pointsRef.current.length) {
+              const nextPoint = pointsRef.current[i + 1];
+              ctx.moveTo(point.x, point.y);
+              ctx.lineTo(nextPoint.x, nextPoint.y);
+          }
+
+          // Connect down
+          if (i + cols < pointsRef.current.length) {
+              const bottomPoint = pointsRef.current[i + cols];
+              ctx.moveTo(point.x, point.y);
+              ctx.lineTo(bottomPoint.x, bottomPoint.y);
+          }
         }
+        ctx.stroke();
 
-        // Spring back to origin
-        const ox = point.originX - point.x;
-        const oy = point.originY - point.y;
-        
-        point.vx += ox * springFactor;
-        point.vy += oy * springFactor;
-
-        // Apply friction
-        point.vx *= friction;
-        point.vy *= friction;
-
-        // Move point
-        point.x += point.vx;
-        point.y += point.vy;
-      });
-
-      // Draw lines connecting points
-      const spacing = 40;
-      const cols = Math.ceil(canvas.width / spacing) + 1;
-
-      ctx.beginPath();
-      for (let i = 0; i < pointsRef.current.length; i++) {
-        const point = pointsRef.current[i];
-        
-        // Connect right
-        if ((i + 1) % cols !== 0 && i + 1 < pointsRef.current.length) {
-            const nextPoint = pointsRef.current[i + 1];
-            ctx.moveTo(point.x, point.y);
-            ctx.lineTo(nextPoint.x, nextPoint.y);
-        }
-
-        // Connect down
-        if (i + cols < pointsRef.current.length) {
-            const bottomPoint = pointsRef.current[i + cols];
-            ctx.moveTo(point.x, point.y);
-            ctx.lineTo(bottomPoint.x, bottomPoint.y);
-        }
+        frameRef.current = requestAnimationFrame(animate);
+      } catch (error) {
+        console.error("Animation error:", error);
+        cancelAnimationFrame(frameRef.current);
       }
-      ctx.stroke();
-
-      frameRef.current = requestAnimationFrame(animate);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -152,7 +162,7 @@ const InteractiveGrid: React.FC = () => {
   return (
     <canvas 
       ref={canvasRef} 
-      className="absolute inset-0 w-full h-full pointer-events-none mix-blend-screen opacity-40"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
     />
   );
 };
