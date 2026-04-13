@@ -233,6 +233,50 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Featured Case Studies */}
+      <section className="py-24 px-4 bg-white dark:bg-black transition-colors duration-300">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">השפעה ישירה על המחזור</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל של הלקוחות שלנו.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-16">
+            {[
+              {
+                image: "https://i.postimg.cc/CxttGzbC/עיצוב_ללא_שם_2026_04_13T101718_861.png",
+                title: "השפעה על סך המכירות",
+                desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
+              },
+              {
+                image: "https://i.postimg.cc/13TTGfDV/'yzwb-ll'-sm-2026-04-13T101856-928.png",
+                title: "השפעה על סך המכירות",
+                desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
+              }
+            ].map((study, idx) => (
+              <div key={idx} className="bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-[3rem] p-6 md:p-10 shadow-2xl dark:shadow-none flex flex-col group hover:border-blue-500/50 transition-all">
+                <div className="w-full flex items-center justify-center overflow-hidden mb-8 rounded-[2rem]">
+                  <img src={study.image} alt="Case Study Data" className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                </div>
+                <div className="mt-auto">
+                  <h3 className="text-3xl font-black mb-4 text-gray-900 dark:text-white">{study.title}</h3>
+                  <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-medium">{study.desc}</p>
+                  <div className="pt-6 border-t border-gray-200 dark:border-white/5 flex items-center justify-between transition-colors">
+                    <div className="flex items-center gap-2 text-green-600 dark:text-green-400 font-bold text-lg">
+                      <CheckCircle2 className="h-6 w-6" />
+                      <span>נתונים מאומתים</span>
+                    </div>
+                    <div className="text-gray-400 dark:text-white/40 font-bold italic">Verified Result</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Requirements Section */}
       <section className="py-24 px-4 bg-blue-600 text-white text-center">
         <div className="max-w-4xl mx-auto">

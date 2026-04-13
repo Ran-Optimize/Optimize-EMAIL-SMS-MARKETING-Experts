@@ -1,53 +1,42 @@
 
 import React from 'react';
-import { TrendingUp, BarChart, ShoppingBag, Target } from 'lucide-react';
+import { TrendingUp, BarChart, ShoppingBag, Target, CheckCircle2 } from 'lucide-react';
 import LeadForm from '../components/LeadForm';
 
 const Results: React.FC = () => {
-  const caseStudies = [
+  const pieChartStudies = [
     {
-      title: "שיפור מחזור חודשי ב-105%!",
-      revenue: "₪51,000",
-      increase: "+105.7%",
-      sales: "324",
-      desc: "באמצעות בנייה מחדש של אוטומציות הריטנשן, הצלחנו להכפיל את המחזור החודשי של החנות בתוך 30 יום בלבד.",
-      stats: [
-        { label: "מכירות מאוטומציות", value: "324" },
-        { label: "שיעור צמיחה", value: "105.72%" }
-      ]
+      image: "https://i.postimg.cc/k2Qf9M1D/'yzwb-ll'-sm-2026-04-13T101718-861.png",
+      title: "השפעה על סך המכירות",
+      desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
     },
     {
-      title: "שיפור מחזור חודשי ב-36%!",
-      revenue: "₪64,500",
-      increase: "+36.5%",
-      sales: "386",
-      desc: "386 מכירות חדשות שהגיעו ישירות דרך פאנל האימייל וה-SMS שלנו עבור חנות נישה בתחום הלייף סטייל.",
-      stats: [
-        { label: "מכירות מאוטומציות", value: "386" },
-        { label: "סה\"כ הכנסות", value: "₪64.5K" }
-      ]
+      image: "https://i.postimg.cc/Yv6bk2nt/'yzwb-ll'-sm-2026-04-13T101856-928.png",
+      title: "השפעה על סך המכירות",
+      desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
+    }
+  ];
+
+  const horizontalStudies = [
+    {
+      image: "https://i.postimg.cc/QFQ0sN4x/'yzwb-ll'-sm-2026-04-13T101450-478.png",
+      title: "גידול במחזור המכירות",
+      desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     },
     {
-      title: "שיפור מחזור חודשי ב-24%!",
-      revenue: "₪71,700",
-      increase: "+24.9%",
-      sales: "460",
-      desc: "אופטימיזציה של פאנל 'עגלה נטושה' וסדרות ברוכים הבאים יצרו תוספת משמעותית למחזור הקיים.",
-      stats: [
-        { label: "סה\"כ מכירות", value: "460" },
-        { label: "הכנסה ממדיה", value: "₪71.7K" }
-      ]
+      image: "https://i.postimg.cc/21Q2mjc5/'yzwb-ll'-sm-2026-04-13T101456-262.png",
+      title: "גידול במחזור המכירות",
+      desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     },
     {
-      title: "שיפור מחזור חודשי ב-7%!",
-      revenue: "₪56,500",
-      increase: "+7.1%",
-      sales: "348",
-      desc: "גם בחנויות עם מחזורים גבוהים ויציבים, הצלחנו למצוא עוד 7% של 'כסף על הרצפה' באמצעות דיוור חכם.",
-      stats: [
-        { label: "מכירות מאוטומציות", value: "348" },
-        { label: "סה\"כ הכנסות", value: "₪56.5K" }
-      ]
+      image: "https://i.postimg.cc/68rYw6jp/'yzwb-ll'-sm-2026-04-13T101500-872.png",
+      title: "גידול במחזור המכירות",
+      desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
+    },
+    {
+      image: "https://i.postimg.cc/758mpJV4/'yzwb-ll'-sm-2026-04-13T101505-551.png",
+      title: "גידול במחזור המכירות",
+      desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     }
   ];
 
@@ -67,45 +56,66 @@ const Results: React.FC = () => {
         </div>
       </section>
 
-      {/* Case Studies Grid */}
+      {/* Top Section: Pie Charts */}
       <section className="max-w-6xl mx-auto px-4 mt-16 space-y-16">
         <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-blue-600 dark:text-blue-500 mb-4 tracking-tighter uppercase">Optimize SMS + EMAIL Agency</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400">נתונים של עסקים ששיפרנו להם את מחזורי המכירה בצורה משמעותית</p>
+            <h2 className="text-3xl font-black text-blue-600 dark:text-blue-500 mb-4 tracking-tighter uppercase">השפעה כוללת ומקורות מכירה</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">פילוח מקורות ההכנסה וההשפעה הישירה של המערך שלנו על המחזור הכולל</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {caseStudies.map((study, idx) => (
-                <div key={idx} className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-[3rem] p-8 md:p-12 hover:border-blue-500/50 transition-all group relative overflow-hidden shadow-xl dark:shadow-none">
+            {pieChartStudies.map((study, idx) => (
+                <div key={idx} className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-[3rem] p-6 md:p-8 hover:border-blue-500/50 transition-all group relative overflow-hidden shadow-xl dark:shadow-none flex flex-col">
                     <div className="absolute top-0 left-0 w-2 h-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div className="flex justify-between items-start mb-8">
-                        <div className="bg-blue-50 dark:bg-blue-600/20 p-4 rounded-2xl transition-colors">
-                            <BarChart className="text-blue-600 dark:text-blue-500 h-8 w-8" />
-                        </div>
-                        <div className="text-left">
-                            <p className="text-4xl font-black text-gray-900 dark:text-white">{study.increase}</p>
-                            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Growth rate</p>
-                        </div>
-                    </div>
                     
-                    <h3 className="text-2xl md:text-3xl font-black mb-4 text-gray-900 dark:text-white">{study.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed font-medium">{study.desc}</p>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                        {study.stats.map((s, i) => (
-                            <div key={i} className="bg-gray-50 dark:bg-white/5 p-4 rounded-2xl border border-gray-200 dark:border-white/5 transition-colors">
-                                <p className="text-gray-500 text-xs font-bold mb-1 uppercase tracking-tighter">{s.label}</p>
-                                <p className="text-2xl font-black text-gray-900 dark:text-white">{s.value}</p>
-                            </div>
-                        ))}
+                    <div className="flex-grow flex items-center justify-center bg-gray-50 dark:bg-black/50 rounded-2xl overflow-hidden mb-6 border border-gray-100 dark:border-white/5 p-4">
+                        <img src={study.image} alt="Case Study Data" className="w-full h-auto object-contain rounded-xl shadow-sm" referrerPolicy="no-referrer" />
                     </div>
 
-                    <div className="mt-8 pt-8 border-t border-gray-200 dark:border-white/5 flex items-center justify-between transition-colors">
-                         <div className="flex items-center gap-2 text-green-600 dark:text-green-400 font-bold">
-                            <ShoppingBag className="h-5 w-5" />
-                            <span>{study.sales} מכירות חדשות</span>
-                         </div>
-                         <div className="text-gray-400 dark:text-white/40 font-bold text-sm italic">Verified Result</div>
+                    <div className="mt-auto">
+                        <h3 className="text-2xl font-black mb-2 text-gray-900 dark:text-white">{study.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed font-medium">{study.desc}</p>
+                        
+                        <div className="pt-6 border-t border-gray-200 dark:border-white/5 flex items-center justify-between transition-colors">
+                             <div className="flex items-center gap-2 text-green-600 dark:text-green-400 font-bold">
+                                <CheckCircle2 className="h-5 w-5" />
+                                <span>נתונים מאומתים</span>
+                             </div>
+                             <div className="text-gray-400 dark:text-white/40 font-bold text-sm italic">Verified Result</div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+      </section>
+
+      {/* Bottom Section: Horizontal Charts */}
+      <section className="max-w-6xl mx-auto px-4 mt-24 space-y-16">
+        <div className="text-center mb-12">
+            <h2 className="text-3xl font-black text-blue-600 dark:text-blue-500 mb-4 tracking-tighter uppercase">צמיחה במחזורים ואחוזי השפעה</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {horizontalStudies.map((study, idx) => (
+                <div key={idx} className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-[3rem] p-6 md:p-8 hover:border-blue-500/50 transition-all group relative overflow-hidden shadow-xl dark:shadow-none flex flex-col">
+                    <div className="absolute top-0 left-0 w-2 h-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    
+                    <div className="flex-grow flex items-center justify-center bg-gray-50 dark:bg-black/50 rounded-2xl overflow-hidden mb-6 border border-gray-100 dark:border-white/5 p-4">
+                        <img src={study.image} alt="Case Study Data" className="w-full h-auto object-contain rounded-xl shadow-sm" referrerPolicy="no-referrer" />
+                    </div>
+
+                    <div className="mt-auto">
+                        <h3 className="text-2xl font-black mb-2 text-gray-900 dark:text-white">{study.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed font-medium">{study.desc}</p>
+                        
+                        <div className="pt-6 border-t border-gray-200 dark:border-white/5 flex items-center justify-between transition-colors">
+                             <div className="flex items-center gap-2 text-green-600 dark:text-green-400 font-bold">
+                                <CheckCircle2 className="h-5 w-5" />
+                                <span>נתונים מאומתים</span>
+                             </div>
+                             <div className="text-gray-400 dark:text-white/40 font-bold text-sm italic">Verified Result</div>
+                        </div>
                     </div>
                 </div>
             ))}
