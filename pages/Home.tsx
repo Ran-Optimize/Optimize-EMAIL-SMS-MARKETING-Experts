@@ -270,7 +270,7 @@ const Home: React.FC = () => {
             ].map((study, idx) => (
               <div key={idx} className="bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-[3rem] p-6 md:p-10 shadow-2xl dark:shadow-none flex flex-col group hover:border-blue-500/50 transition-all">
                 <div className="w-full flex items-center justify-center overflow-hidden mb-8 rounded-[2rem]">
-                  <img src={study.image} alt="Case Study Data" className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                  <img src={study.image} alt="Case Study Data" className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="mt-auto">
                   <h3 className="text-3xl font-black mb-4 text-gray-900 dark:text-white">{study.title}</h3>

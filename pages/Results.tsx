@@ -82,7 +82,7 @@ const Results: React.FC = () => {
                     <div className="absolute top-0 left-0 w-2 h-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     
                     <div className="flex-grow flex items-center justify-center bg-gray-50 dark:bg-black/50 rounded-2xl overflow-hidden mb-6 border border-gray-100 dark:border-white/5 p-4">
-                        <img src={study.image} alt="Case Study Data" className="w-full h-auto object-contain rounded-xl shadow-sm" referrerPolicy="no-referrer" />
+                        <img src={study.image} alt="Case Study Data" className="w-full h-auto object-contain rounded-xl shadow-sm" />
                     </div>
 
                     <div className="mt-auto">
@@ -115,7 +115,7 @@ const Results: React.FC = () => {
                     <div className="absolute top-0 left-0 w-2 h-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     
                     <div className="flex-grow flex items-center justify-center bg-gray-50 dark:bg-black/50 rounded-2xl overflow-hidden mb-6 border border-gray-100 dark:border-white/5 p-4">
-                        <img src={study.image} alt="Case Study Data" className="w-full h-auto object-contain rounded-xl shadow-sm" referrerPolicy="no-referrer" />
+                        <img src={study.image} alt="Case Study Data" className="w-full h-auto object-contain rounded-xl shadow-sm" />
                     </div>
 
                     <div className="mt-auto">
