@@ -3,13 +3,13 @@ import React from 'react';
 import { TrendingUp, BarChart, ShoppingBag, Target, CheckCircle2 } from 'lucide-react';
 import LeadForm from '../components/LeadForm';
 
-import img21 from '/21-percent.png';
-import img22 from '/22-percent.png';
-import img23 from '/23-percent.png';
-import img51 from '/51.png';
-import img56 from '/56.png';
-import img64k from '/64k.png';
-import img71k from '/71k.png';
+import img21 from '../assets/21-percent.png';
+import img22 from '../assets/22-percent.png';
+import img23 from '../assets/23-percent.png';
+import img51 from '../assets/51.png';
+import img56 from '../assets/56.png';
+import img64k from '../assets/64k.png';
+import img71k from '../assets/71k.png';
 
 const Results: React.FC = () => {
   const pieChartStudies = [
