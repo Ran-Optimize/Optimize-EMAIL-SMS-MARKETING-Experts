@@ -7,10 +7,7 @@ import VisualFlow from '../components/VisualFlow';
 import AgencyMetrics from '../components/AgencyMetrics';
 import LeadForm from '../components/LeadForm';
 import { Mail, BarChart3, Zap, ArrowLeft, Gem, CheckCircle2, Send, User, Phone, Globe, BarChart } from 'lucide-react';
-
-import img21 from '../assets/21-percent.png';
-import img22 from '../assets/22-percent.png';
-import img23 from '../assets/23-percent.png';
+import { img21, img22, img23 } from '../image-data';
 
 const showcaseEmails = [
   "https://i.postimg.cc/FzsCLxg2/giggleit-(1).jpg",
