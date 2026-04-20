@@ -36,6 +36,9 @@ const Home: React.FC = () => {
       });
       
       if (response.ok) {
+        if (typeof window !== 'undefined' && (window as any).fbq && !quickSubmitted) {
+          (window as any).fbq('track', 'Lead');
+        }
         setQuickSubmitted(true);
       } else {
         alert("אירעה שגיאה בשליחת הטופס. אנא נסו שוב.");

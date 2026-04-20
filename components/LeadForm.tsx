@@ -22,6 +22,9 @@ const LeadForm: React.FC = () => {
       });
       
       if (response.ok) {
+        if (typeof window !== 'undefined' && (window as any).fbq && !submitted) {
+          (window as any).fbq('track', 'Lead');
+        }
         setSubmitted(true);
       } else {
         alert("אירעה שגיאה בשליחת הטופס. אנא נסו שוב.");
