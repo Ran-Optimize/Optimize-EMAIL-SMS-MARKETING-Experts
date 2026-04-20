@@ -20,6 +20,9 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        assetsInlineLimit: 1000000 // Inline images up to ~1MB as base64 to prevent loading issues
       }
     };
 });
