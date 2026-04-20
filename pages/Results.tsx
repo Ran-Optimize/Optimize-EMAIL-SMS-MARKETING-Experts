@@ -6,12 +6,17 @@ import LeadForm from '../components/LeadForm';
 const Results: React.FC = () => {
   const pieChartStudies = [
     {
-      image: "https://i.postimg.cc/k2Qf9M1D/'yzwb-ll'-sm-2026-04-13T101718-861.png",
+      image: "/21-percent.png",
       title: "השפעה על סך המכירות",
       desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
     },
     {
-      image: "https://i.postimg.cc/Yv6bk2nt/'yzwb-ll'-sm-2026-04-13T101856-928.png",
+      image: "/22-percent.png",
+      title: "השפעה על סך המכירות",
+      desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
+    },
+    {
+      image: "/23-percent.png",
       title: "השפעה על סך המכירות",
       desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
     }
@@ -19,22 +24,22 @@ const Results: React.FC = () => {
 
   const horizontalStudies = [
     {
-      image: "https://i.postimg.cc/QFQ0sN4x/'yzwb-ll'-sm-2026-04-13T101450-478.png",
+      image: "/51.png",
       title: "גידול במחזור המכירות",
       desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     },
     {
-      image: "https://i.postimg.cc/21Q2mjc5/'yzwb-ll'-sm-2026-04-13T101456-262.png",
+      image: "/56.png",
       title: "גידול במחזור המכירות",
       desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     },
     {
-      image: "https://i.postimg.cc/68rYw6jp/'yzwb-ll'-sm-2026-04-13T101500-872.png",
+      image: "/64k.png",
       title: "גידול במחזור המכירות",
       desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     },
     {
-      image: "https://i.postimg.cc/758mpJV4/'yzwb-ll'-sm-2026-04-13T101505-551.png",
+      image: "/71k.png",
       title: "גידול במחזור המכירות",
       desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     }
@@ -57,13 +62,13 @@ const Results: React.FC = () => {
       </section>
 
       {/* Top Section: Pie Charts */}
-      <section className="max-w-6xl mx-auto px-4 mt-16 space-y-16">
+      <section className="max-w-7xl mx-auto px-4 mt-16 space-y-16">
         <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-blue-600 dark:text-blue-500 mb-4 tracking-tighter uppercase">השפעה כוללת ומקורות מכירה</h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">פילוח מקורות ההכנסה וההשפעה הישירה של המערך שלנו על המחזור הכולל</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pieChartStudies.map((study, idx) => (
                 <div key={idx} className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 rounded-[3rem] p-6 md:p-8 hover:border-blue-500/50 transition-all group relative overflow-hidden shadow-xl dark:shadow-none flex flex-col">
                     <div className="absolute top-0 left-0 w-2 h-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>

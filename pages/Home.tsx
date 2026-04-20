@@ -249,12 +249,17 @@ const Home: React.FC = () => {
           <div className="flex flex-col gap-16">
             {[
               {
-                image: "https://i.postimg.cc/CxttGzbC/עיצוב_ללא_שם_2026_04_13T101718_861.png",
+                image: "/21-percent.png",
                 title: "השפעה על סך המכירות",
                 desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
               },
               {
-                image: "https://i.postimg.cc/13TTGfDV/'yzwb-ll'-sm-2026-04-13T101856-928.png",
+                image: "/22-percent.png",
+                title: "השפעה על סך המכירות",
+                desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
+              },
+              {
+                image: "/23-percent.png",
                 title: "השפעה על סך המכירות",
                 desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
               }

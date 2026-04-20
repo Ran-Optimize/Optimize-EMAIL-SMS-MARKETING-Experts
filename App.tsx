@@ -7,6 +7,8 @@ import Results from './pages/Results';
 import Footer from './components/Footer';
 import { useTheme } from './components/ThemeProvider';
 
+import ScrollToTop from './components/ScrollToTop';
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
@@ -42,12 +44,12 @@ const Navbar: React.FC = () => {
             </Link>
             
             <div className="hidden lg:flex items-center gap-3 border-r border-gray-200 dark:border-white/10 pr-4 mr-2">
-              <div className="flex items-center gap-1.5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Shopify_Logo.png" alt="Shopify" className="h-4 dark:invert dark:brightness-200" />
+              <div className="flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-all group">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Shopify_Logo.png" alt="Shopify" className="h-4 group-hover:grayscale transition-all" />
                  <span className="text-[10px] font-bold text-gray-500 dark:text-white/50 uppercase">Partner</span>
               </div>
-              <div className="flex items-center gap-1.5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-                 <img src="https://my.flashy.app/he/assets/images/partners/icon-logo-blue.png" alt="Flashy" className="h-5" />
+              <div className="flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-all group">
+                 <img src="https://my.flashy.app/he/assets/images/partners/icon-logo-blue.png" alt="Flashy" className="h-5 group-hover:grayscale transition-all" />
                  <span className="text-[10px] font-bold text-gray-500 dark:text-white/50 uppercase">Partner</span>
               </div>
             </div>
@@ -130,6 +132,7 @@ const Navbar: React.FC = () => {
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-gray-50 dark:bg-neutral-950 text-gray-900 dark:text-white flex flex-col transition-colors duration-300">
         <Navbar />
         <main className="flex-grow pt-20">
