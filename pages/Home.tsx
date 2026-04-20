@@ -8,6 +8,10 @@ import AgencyMetrics from '../components/AgencyMetrics';
 import LeadForm from '../components/LeadForm';
 import { Mail, BarChart3, Zap, ArrowLeft, Gem, CheckCircle2, Send, User, Phone, Globe, BarChart } from 'lucide-react';
 
+import img21 from '/21-percent.png';
+import img22 from '/22-percent.png';
+import img23 from '/23-percent.png';
+
 const showcaseEmails = [
   "https://i.postimg.cc/FzsCLxg2/giggleit-(1).jpg",
   "https://i.postimg.cc/CxV6gDRh/La-pelota-'glh-ntwsh-5.png",
@@ -249,17 +253,17 @@ const Home: React.FC = () => {
           <div className="flex flex-col gap-16">
             {[
               {
-                image: "/21-percent.png",
+                image: img21,
                 title: "השפעה על סך המכירות",
                 desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
               },
               {
-                image: "/22-percent.png",
+                image: img22,
                 title: "השפעה על סך המכירות",
                 desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
               },
               {
-                image: "/23-percent.png",
+                image: img23,
                 title: "השפעה על סך המכירות",
                 desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
               }

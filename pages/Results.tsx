@@ -3,20 +3,28 @@ import React from 'react';
 import { TrendingUp, BarChart, ShoppingBag, Target, CheckCircle2 } from 'lucide-react';
 import LeadForm from '../components/LeadForm';
 
+import img21 from '/21-percent.png';
+import img22 from '/22-percent.png';
+import img23 from '/23-percent.png';
+import img51 from '/51.png';
+import img56 from '/56.png';
+import img64k from '/64k.png';
+import img71k from '/71k.png';
+
 const Results: React.FC = () => {
   const pieChartStudies = [
     {
-      image: "/21-percent.png",
+      image: img21,
       title: "השפעה על סך המכירות",
       desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
     },
     {
-      image: "/22-percent.png",
+      image: img22,
       title: "השפעה על סך המכירות",
       desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
     },
     {
-      image: "/23-percent.png",
+      image: img23,
       title: "השפעה על סך המכירות",
       desc: "פילוח מקורות ההכנסה וההשפעה הישירה של מערך האימייל וה-SMS על המחזור הכולל."
     }
@@ -24,22 +32,22 @@ const Results: React.FC = () => {
 
   const horizontalStudies = [
     {
-      image: "/51.png",
+      image: img51,
       title: "גידול במחזור המכירות",
       desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     },
     {
-      image: "/56.png",
+      image: img56,
       title: "גידול במחזור המכירות",
       desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     },
     {
-      image: "/64k.png",
+      image: img64k,
       title: "גידול במחזור המכירות",
       desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     },
     {
-      image: "/71k.png",
+      image: img71k,
       title: "גידול במחזור המכירות",
       desc: "תוצאות מוכחות של גידול בהכנסות כתוצאה מאופטימיזציה של קמפיינים ואוטומציות."
     }
