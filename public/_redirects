@@ -1,0 +1,5 @@
+# Gallery (email portfolio) served under /gallery on the main domain.
+# Proxied from the dedicated Netlify project so the main site build stays untouched.
+/gallery            /gallery/                                                        301
+/gallery/           https://optimize-agency-email-portfolio.netlify.app/index.html    200
+/gallery/*          https://optimize-agency-email-portfolio.netlify.app/:splat        200
